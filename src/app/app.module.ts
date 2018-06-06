@@ -3,14 +3,19 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { TestComponent } from './test/test.component';
+import { NguiInfiniteListModule } from '@ngui/infinite-list';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NguiInfiniteListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

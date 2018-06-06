@@ -1,0 +1,9 @@
+<ul ngui-infinite-list  class="infinite-list"
+(endVisible)="loadMore(set1)">
+<li *ngFor="let item of set1.list">{{item+1}}</li>
+<div ngui-infinite-list-end>
+<div *ngIf="set1.loadingInProgress">Loading</div>
+<div *ngIf="set1.endOfList">End Of List</div>
+</div>
+</ul>
+loading in progress : {{set1.loadingInProgress}};

@@ -1,20 +1,58 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container-fluid">
+  <h1 class="text-center mb-5">Assignment</h1>  
+  <div class="row">
+    <div class="col-12 mb-3">
+      <form class=form-inline>
+        <div class="form-group mr-1">
+          <h2>Filter Videos:</h2>
+        </div>
+        <div class="form-group mr-1">
+            <input type="text" placeholder="by video title..." class="form-control">
+          </div>
+          <div class="form-group mr-1">
+            <input type="text" placeholder="by page name..." class="form-control">
+          </div>
+      </form>
+    </div>
+    <div class="col-12 mb-1">
+      <span>Sort by:</span>
+      <button (click)="sortData('views')" class="btn btn-sm btn-dark">Views</button>
+      <button (click)="sortData('likes')" class="btn btn-sm btn-dark">Likes</button>
+      <button (click)="sortData('shares')" class="btn btn-sm btn-dark">Shares</button>
+      <span class="ml-2 text-primary">{{(clickStatus && clickStatus % 2 === 0 )? "Ascending": ""}}</span>
+      <span class="ml-2 text-primary">{{(clickStatus && clickStatus % 2 === 1 )? "Descending": ""}}</span>
+    </div>
+      <div class="col-12">
+        <div class="table-container text-center">
+            <table class="table ">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Video title</th>
+                    <th scope="col">Page name</th>
+                    <th scope="col">Publish date</th>
+                    <th scope="col">Views</th>
+                    <th scope="col">Likes</th>
+                    <th scope="col">Comments</th>
+                    <th scope="col">Shares</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let video of data">
+                    <td>{{video.title}}</td>
+                    <td>{{video.parent_name}}</td>
+                    <td>{{video.published}}</td>
+                    <td>{{video.views}}</td>
+                    <td>{{video.likes}}</td>
+                    <td>{{video.comments}}</td>
+                    <td>{{video.shares}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+
+
+<!-- <app-test></app-test> -->
