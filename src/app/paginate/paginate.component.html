@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <h1 class="text-center ">Assignment ( With Pagination )</h1>  
+  <p class="text-center mb-5 text-danger">Scroll Down to see Pagination</p>
+  <div class="row">
+    <div class="col-12 mb-3">
+      <form class=form-inline>
+        <div class="form-group mr-1">
+          <h2>Filter Videos:</h2>
+        </div>
+        <div class="form-group mr-1">
+            <input type="text" name="title" #title (keyup)="filter(title)" placeholder="by video title..." class="form-control">
+          </div>
+          <div class="form-group mr-1">
+            <input type="text" name="name" #nm (keyup)="filter(nm)" placeholder="by page name..." class="form-control">
+          </div>
+      </form>
+    </div>
+    <div class="col-12 mb-1">
+      <span>Sort by:</span>
+      <button (click)="sortData('views')" class="btn btn-sm btn-dark">Views</button>
+      <button (click)="sortData('likes')" class="btn btn-sm btn-dark">Likes</button>
+      <button (click)="sortData('shares')" class="btn btn-sm btn-dark">Shares</button>
+      <span class="ml-2 text-primary">{{(clickStatus && clickStatus % 2 === 0 )? "Ascending": ""}}</span>
+      <span class="ml-2 text-primary">{{(clickStatus && clickStatus % 2 === 1 )? "Descending": ""}}</span>
+    </div>
+      <div class="col-12">
+        <div class="table-container text-center">
+            <table class="table ">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Video title</th>
+                    <th scope="col">Page name</th>
+                    <th scope="col">Publish date</th>
+                    <th scope="col">Views</th>
+                    <th scope="col">Likes</th>
+                    <th scope="col">Comments</th>
+                    <th scope="col">Shares</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let video of viewedData | paginate: { itemsPerPage: 10, currentPage: page }">
+                    <td>{{video.title}}</td>
+                    <td>{{video.parent_name}}</td>
+                    <td>{{video.published}}</td>
+                    <td>{{video.views}}</td>
+                    <td>{{video.likes}}</td>
+                    <td>{{video.comments}}</td>
+                    <td>{{video.shares}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="has-text-centered text-center">
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div> 
+      </div>
+  </div>
+</div>
+
+
+
+<!-- <app-test></app-test> -->

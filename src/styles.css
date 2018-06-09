@@ -1,5 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 h1,h2,h3,h4,h5,h6,span,p,div,td,tr,th{
     font-family: 'Cairo', sans-serif;
 }
+
+.nav-bar{
+    background: rgb(67, 67, 67);
+    padding: 20px 0;
+    box-shadow: 1px 1px 13px #0000002b;
+}
+.list-unstyled{
+    margin: 0
+}
+
+.list-unstyled a{
+    font-size: 20px;
+    color: #444;
+    margin-right: 20px;
+    text-decoration: none;
+    background: #ccc;
+    padding: 1px 7px;
+    border-radius: 4px;
+    transition: .4s;
+}
+
+.list-unstyled a:hover{
+    background: #9a9a9a;
+    color: #eee;
+}
+.list-unstyled a.active{
+    background: #127ede;
+    color: #eee;
+}
+
